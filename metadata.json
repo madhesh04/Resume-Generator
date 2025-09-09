@@ -1,0 +1,5 @@
+{
+  "name": "Smart Resume Builder",
+  "description": "A web application that allows users to create professional resumes by entering their details, choosing from modern templates, and exporting the final document as a PDF. It features a real-time preview and customizable sections.",
+  "requestFramePermissions": []
+}
