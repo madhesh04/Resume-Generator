@@ -1,8 +1,10 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Skill } from '../../types';
 import { useResume } from '../../contexts/ResumeContext';
 import { Plus, Trash2 } from 'lucide-react';
+import { sampleResumeData } from '../../constants';
 
 const SkillsForm: React.FC = () => {
   const { resume, dispatch } = useResume();
@@ -29,6 +31,7 @@ const SkillsForm: React.FC = () => {
 
   const inputClasses = "p-2 border rounded-md bg-white text-gray-900 placeholder-gray-500";
   const selectClasses = "p-2 border rounded-md bg-white text-gray-900";
+  const sampleSkill = sampleResumeData.skills[0];
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
@@ -39,7 +42,7 @@ const SkillsForm: React.FC = () => {
             name="name" 
             value={skill.name} 
             onChange={e => handleChange(index, e)} 
-            placeholder="Skill (e.g., React)" 
+            placeholder={sampleSkill.name} 
             className={`${inputClasses} flex-grow`} 
           />
           <select 

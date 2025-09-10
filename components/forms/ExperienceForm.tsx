@@ -1,8 +1,10 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Experience } from '../../types';
 import { useResume } from '../../contexts/ResumeContext';
 import { Plus, Trash2 } from 'lucide-react';
+import { sampleResumeData } from '../../constants';
 
 const ExperienceForm: React.FC = () => {
   const { resume, dispatch } = useResume();
@@ -31,6 +33,7 @@ const ExperienceForm: React.FC = () => {
   };
 
   const inputClasses = "p-2 border rounded-md bg-white text-gray-900 placeholder-gray-500";
+  const sampleExp = sampleResumeData.experience[0];
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
@@ -44,10 +47,10 @@ const ExperienceForm: React.FC = () => {
             <Trash2 size={20} />
           </button>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pr-10">
-            <input name="company" value={exp.company} onChange={e => handleChange(index, e)} placeholder="Company" className={inputClasses} />
-            <input name="role" value={exp.role} onChange={e => handleChange(index, e)} placeholder="Role" className={inputClasses} />
-            <input name="startDate" value={exp.startDate} onChange={e => handleChange(index, e)} placeholder="Start Date" className={inputClasses} />
-            <input name="endDate" value={exp.endDate} onChange={e => handleChange(index, e)} placeholder="End Date" className={inputClasses} />
+            <input name="company" value={exp.company} onChange={e => handleChange(index, e)} placeholder={sampleExp.company} className={inputClasses} />
+            <input name="role" value={exp.role} onChange={e => handleChange(index, e)} placeholder={sampleExp.role} className={inputClasses} />
+            <input name="startDate" value={exp.startDate} onChange={e => handleChange(index, e)} placeholder={sampleExp.startDate} className={inputClasses} />
+            <input name="endDate" value={exp.endDate} onChange={e => handleChange(index, e)} placeholder={sampleExp.endDate} className={inputClasses} />
           </div>
           <div className="mt-4">
             <div className="flex justify-between items-center mb-1">
@@ -58,7 +61,7 @@ const ExperienceForm: React.FC = () => {
                 name="description"
                 value={exp.description.join('\n')}
                 onChange={e => handleChange(index, e)}
-                placeholder="Describe your responsibilities and achievements."
+                placeholder={sampleExp.description.join('\n')}
                 className={`${inputClasses} w-full h-32`}
             />
           </div>

@@ -1,8 +1,10 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Education } from '../../types';
 import { useResume } from '../../contexts/ResumeContext';
 import { Plus, Trash2 } from 'lucide-react';
+import { sampleResumeData } from '../../constants';
 
 const EducationForm: React.FC = () => {
   const { resume, dispatch } = useResume();
@@ -28,6 +30,7 @@ const EducationForm: React.FC = () => {
   };
 
   const inputClasses = "p-2 border rounded-md bg-white text-gray-900 placeholder-gray-500";
+  const sampleEdu = sampleResumeData.education[0];
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
@@ -41,10 +44,10 @@ const EducationForm: React.FC = () => {
             <Trash2 size={20} />
           </button>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pr-10">
-            <input name="institution" value={edu.institution} onChange={e => handleChange(index, e)} placeholder="Institution" className={inputClasses} />
-            <input name="degree" value={edu.degree} onChange={e => handleChange(index, e)} placeholder="Degree" className={inputClasses} />
-            <input name="startDate" value={edu.startDate} onChange={e => handleChange(index, e)} placeholder="Start Date" className={inputClasses} />
-            <input name="endDate" value={edu.endDate} onChange={e => handleChange(index, e)} placeholder="End Date" className={inputClasses} />
+            <input name="institution" value={edu.institution} onChange={e => handleChange(index, e)} placeholder={sampleEdu.institution} className={inputClasses} />
+            <input name="degree" value={edu.degree} onChange={e => handleChange(index, e)} placeholder={sampleEdu.degree} className={inputClasses} />
+            <input name="startDate" value={edu.startDate} onChange={e => handleChange(index, e)} placeholder={sampleEdu.startDate} className={inputClasses} />
+            <input name="endDate" value={edu.endDate} onChange={e => handleChange(index, e)} placeholder={sampleEdu.endDate} className={inputClasses} />
           </div>
         </div>
       ))}

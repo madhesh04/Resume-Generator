@@ -1,8 +1,10 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Project } from '../../types';
 import { useResume } from '../../contexts/ResumeContext';
 import { Plus, Trash2 } from 'lucide-react';
+import { sampleResumeData } from '../../constants';
 
 const ProjectsForm: React.FC = () => {
   const { resume, dispatch } = useResume();
@@ -28,6 +30,7 @@ const ProjectsForm: React.FC = () => {
   };
 
   const inputClasses = "p-2 border rounded-md bg-white text-gray-900 placeholder-gray-500";
+  const sampleProj = sampleResumeData.projects[0];
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
@@ -41,13 +44,13 @@ const ProjectsForm: React.FC = () => {
             <Trash2 size={20} />
           </button>
           <div className="grid grid-cols-1 gap-4 pr-10">
-            <input name="name" value={proj.name} onChange={e => handleChange(index, e)} placeholder="Project Name" className={inputClasses} />
-            <input name="url" value={proj.url} onChange={e => handleChange(index, e)} placeholder="Project URL" className={inputClasses} />
+            <input name="name" value={proj.name} onChange={e => handleChange(index, e)} placeholder={sampleProj.name} className={inputClasses} />
+            <input name="url" value={proj.url} onChange={e => handleChange(index, e)} placeholder={sampleProj.url} className={inputClasses} />
             <textarea
                 name="description"
                 value={proj.description}
                 onChange={e => handleChange(index, e)}
-                placeholder="Project Description"
+                placeholder={sampleProj.description}
                 className={`${inputClasses} w-full h-24`}
             />
           </div>

@@ -1,7 +1,7 @@
 
 import { Resume, TemplateKey } from './types';
 
-export const initialResumeData: Resume = {
+export const sampleResumeData: Resume = {
   personalInfo: {
     name: "Jane Doe",
     title: "Senior Frontend Engineer",
@@ -71,6 +71,25 @@ export const initialResumeData: Resume = {
     { id: "skill6", name: "Figma", level: "Intermediate" },
   ],
 };
+
+export const initialResumeData: Resume = {
+  personalInfo: {
+    name: "",
+    title: "",
+    email: "",
+    phone: "",
+    location: "",
+    linkedin: "",
+    github: "",
+    website: "",
+    summary: "",
+  },
+  experience: [],
+  education: [],
+  projects: [],
+  skills: [],
+};
+
 
 export const templates: { key: TemplateKey; name: string }[] = [
   { key: 'modern', name: 'Modern' },
