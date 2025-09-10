@@ -24,7 +24,8 @@ const EditorControls: React.FC = () => {
     const { undo, redo, canUndo, canRedo } = useResume();
 
     return (
-        <div className="bg-white p-3 rounded-lg shadow-md flex items-center justify-end">
+        <div className="bg-white p-3 rounded-lg shadow-md flex items-center justify-between">
+            <h2 className="text-lg font-bold text-primary">Resume Editor</h2>
             <div className="flex items-center gap-2">
                 <button 
                     onClick={undo} 
